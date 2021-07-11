@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class TwinPrime
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n1=1,n2=2,n;
+		System.out.println("To find twin prime numbers between 1 and n.");
+		System.out.println();
+		System.out.println("Enter value for n :");
+		n=sc.nextInt();
+		while(n1<=n && n2<=n)
+		{
+		    if(isPrime(n1) && isPrime(n2) && ((n2-n1) == 2))
+		    {
+		        System.out.println("("+n1+","+n2+") are twin prime numbers.");
+		        n1=n2;
+		        n2++;
+		    }
+		    else
+		        n2++;
+		}
+	}
+	
+	public static boolean isPrime(int n)
+	{
+	    double sq=Math.sqrt(n);
+	    for(int i=2;i<sq;i++)
+	       if(n%i == 0)
+	           return false;
+	   
+	   return true;
+	}
+}
